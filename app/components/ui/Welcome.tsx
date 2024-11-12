@@ -5,7 +5,7 @@ const Welcome = () => {
   return (
     <div className="mt-20">
       <MotionConfig transition={{ duration: 0.5 }}>
-        <div className="flex  flex-col gap-7 px-8 justify-center items-center mt-[100px]">
+        <div className="flex  flex-col gap-7 justify-center items-center mt-[100px]">
           <motion.div
             initial={{ opacity: 0, y: "20px" }}
             whileInView={{ opacity: 1, y: "0" }}
@@ -22,9 +22,9 @@ const Welcome = () => {
             <motion.div
               initial={{ opacity: 0, y: "20px" }}
               whileInView={{ opacity: 1, y: "0" }}
-              className="flex-1 px-20 flex "
+              className="flex-1 flex "
             >
-              <p className="text-primary/70 uppercase text-[30px] sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl font-medium">
+              <p className="text-primary/70 uppercase text-[30px] sm:text-xl md:text-2xl lg:text-2xl xl:text-2xl font-medium">
               Я - Ольга Жгун. Профессиональный кондитер с высшим образованием режиссёра и многолетним опытом работы на телевидении
               </p>
             </motion.div>

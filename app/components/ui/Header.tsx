@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header>
       <MotionConfig transition={{ duration: 0.7, ease: "easeInOut" }}>
-        <div className="flex items-center justify-center h-screen px-4">
+        <div className="flex items-center justify-center h-screen ">
           <div className="flex lg:flex-row flex-col  gap-20 justify-center items-center">
             <motion.div
               initial={{ opacity: 0, y: "20px" }}

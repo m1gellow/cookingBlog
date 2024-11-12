@@ -6,7 +6,6 @@ const Benefits = () => {
       <div className="px-8 flex flex-col gap-8">
         <div className="flex flex-col justify-center items-center uppercase text-[40px] sm:text-[60px] md:text-[65px] lg:text-[70px] xl:text-[80px]">
           <h2>Наши приемущества которые</h2>
-          <h2>Вам стоит попробовать!</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">

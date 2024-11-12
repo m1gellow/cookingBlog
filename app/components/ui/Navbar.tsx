@@ -28,7 +28,7 @@ const Navbar = () => {
 
   return (
     <nav ref={menuRef}>
-      <div className="absolute lg:hidden flex  justify-end items-center w-full px-8 ">
+      <div className="absolute lg:hidden flex  justify-end items-center w-full  ">
         <div>
           <div className="flex justify-end items-end">
              <AlignRight size={35} onClick={toggleMenu} />
