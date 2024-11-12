@@ -30,7 +30,12 @@ const Navbar = () => {
     <nav ref={menuRef}>
       <div className="absolute lg:hidden flex  justify-end items-center w-full px-8 ">
         <div>
-          <AlignRight size={35} onClick={toggleMenu} />
+          <div className="flex justify-end items-end">
+             <AlignRight size={35} onClick={toggleMenu} />
+          </div>
+           
+        
+          
           {isOpen ? (
             <div className="bg-white shadow-md py-5 px-4 rounded-md">
               <ul className="flex flex-col gap-4">

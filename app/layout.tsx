@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfairdisplay.variable} antialiased`}>
-        <Navbar/>
+        <Navbar />
         {children}
       </body>
     </html>

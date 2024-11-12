@@ -3,6 +3,7 @@ import Lenis from 'lenis'
 import Header from "./components/ui/Header";
 import Welcome from "./components/ui/Welcome";
 import { useEffect } from 'react';
+import Benefits from './components/ui/Benefits';
 
 export default function Home() {
   
@@ -24,6 +25,7 @@ useEffect(() => {
     <div>
       <Header/>
       <Welcome/>
+      <Benefits/>
     </div>
   );
 }

@@ -1,30 +1,37 @@
 "use client";
-import Image from "next/image";
 import React from "react";
-import Projects from "../../../public/Projects.png";
 import { motion, MotionConfig } from "framer-motion";
+import Image from "next/image";
+import Projects from "../../../public/Projects.png";
+import MainButton from "../shared/MainButton";
 
 const Header = () => {
   return (
-    <header className="">
+    <header>
       <MotionConfig transition={{ duration: 0.7, ease: "easeInOut" }}>
-        <div className="flex flex-col justify-center items-center">
-          <motion.div
-            initial={{ opacity: 0, y: "20px" }}
-            whileInView={{ opacity: 1, y: "0" }}
-            className="mt-20"
-          >
-            <h1 className="text-[40px] sm:text-[70px] md:text-[80px] lg:text-[85px] xl:text-[100px] text-primary">
-              Кулинарный Мир
-            </h1>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="w-full h-full flex justify-center lg:mt-20 mt-[100px] items-center"
-          >
-            <Image src={Projects} objectFit="cover" width={1700} height={1000} alt="works" />
-          </motion.div>
+        <div className="flex items-center justify-center h-screen px-4">
+          <div className="flex lg:flex-row flex-col  gap-20 justify-center items-center">
+            <motion.div
+              initial={{ opacity: 0, y: "20px" }}
+              whileInView={{ opacity: 1, y: "0" }}
+              className="flex-1 flex gap-4 flex-col items-center lg:items-start"
+            >
+              <h1 className="text-[60px] sm:text-[80px] md:text-[85px] lg:text-[90px] xl:text-[120px] text-primary">
+                Кулинарный Мир
+              </h1>
+              <MainButton />
+            </motion.div>
+
+            <motion.div className="flex-1">
+              <Image
+                src={Projects}
+                alt="ProjectsImage"
+                width={600}
+                height={600}
+                loading="lazy"
+              />
+            </motion.div>
+          </div>
         </div>
       </MotionConfig>
     </header>
