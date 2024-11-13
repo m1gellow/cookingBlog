@@ -14,6 +14,15 @@ body::-webkit-scrollbar{
     display: none;
 }
 
+h1{
+    font-family: "Playfair Display", serif;
+}
+
+
+h3{
+    font-family: "Roboto", serif;
+}
+
 
 
 .link{

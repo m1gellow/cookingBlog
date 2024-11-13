@@ -4,6 +4,8 @@ import Header from "./components/ui/Header";
 import Welcome from "./components/ui/Welcome";
 import { useEffect } from 'react';
 import Benefits from './components/ui/Benefits';
+import Devider from './components/shared/Devider';
+import News from './components/ui/News';
 
 export default function Home() {
   
@@ -22,10 +24,14 @@ useEffect(() => {
   
   
   return (
-    <div>
+    <div className='flex flex-col items-center justify-center '>
       <Header/>
+      <Devider index={1}/>
       <Welcome/>
+      <Devider index={2}/>
       <Benefits/>
+      <Devider index={3}/>
+      <News/>
     </div>
   );
 }

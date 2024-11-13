@@ -69,7 +69,7 @@ const Navbar = () => {
       <div className=" container mt-8">
         <ul className="hidden lg:flex gap-10 justify-between  items-center">
           <li>
-            <Link href={pageConfig.about} className="link">
+            <Link href='/#aboutUs' className="link">
               О Нас
             </Link>
           </li>
@@ -89,8 +89,8 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href={pageConfig.gallery} className="link">
-              Каталог
+            <Link href='/#blog' className="link">
+              Блог
             </Link>
           </li>
         </ul>
