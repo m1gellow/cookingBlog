@@ -11,9 +11,9 @@ const playfairdisplay = Playfair_Display({
 
 const roboto = Roboto({
   variable: "--font-roboto",
-  subsets: ['cyrillic'],
-  weight: ['100', '300', '400', '500', '700', '900']
-})
+  subsets: ["cyrillic"],
+  weight: ["100", "300", "400", "500", "700", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,8 +27,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfairdisplay.variable} ${roboto.variable} antialiased`}>
-        <Navbar /> 
+      <body
+        className={`${playfairdisplay.variable} ${roboto.variable} antialiased`}
+      >
+        <Navbar />
         <div className="px-[100px]">{children}</div>
       </body>
     </html>

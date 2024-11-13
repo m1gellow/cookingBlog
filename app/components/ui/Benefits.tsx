@@ -6,7 +6,7 @@ import { motion, MotionConfig } from "framer-motion";
 const Benefits = () => {
   return (
     <div>
-      <MotionConfig transition={{duration: .5}}>
+      <MotionConfig transition={{ duration: 0.5 }}>
         <div className=" flex flex-col gap-8">
           <motion.div
             initial={{ opacity: 0, y: "20px" }}

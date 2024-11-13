@@ -10,7 +10,12 @@ interface BenefitsCardProps {
   title: string;
 }
 
-const BenefitsCard: React.FC<BenefitsCardProps> = ({ color, content, title , button }) => {
+const BenefitsCard: React.FC<BenefitsCardProps> = ({
+  color,
+  content,
+  title,
+  button,
+}) => {
   return (
     <div>
       <div className={cn(`border-${color}-300 border-2  rounded-[30px] p-6`)}>

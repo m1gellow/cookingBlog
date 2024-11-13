@@ -31,11 +31,9 @@ const Navbar = () => {
       <div className="absolute lg:hidden flex  justify-end items-center w-full  ">
         <div>
           <div className="flex justify-end items-end">
-             <AlignRight size={35} onClick={toggleMenu} />
+            <AlignRight size={35} onClick={toggleMenu} />
           </div>
-           
-        
-          
+
           {isOpen ? (
             <div className="bg-white shadow-md py-5 px-4 rounded-md">
               <ul className="flex flex-col gap-4">
@@ -69,7 +67,7 @@ const Navbar = () => {
       <div className=" container mt-8">
         <ul className="hidden lg:flex gap-10 justify-between  items-center">
           <li>
-            <Link href='/#aboutUs' className="link">
+            <Link href="/#aboutUs" className="link">
               О Нас
             </Link>
           </li>
@@ -89,7 +87,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href='/#blog' className="link">
+            <Link href="/#blog" className="link">
               Блог
             </Link>
           </li>

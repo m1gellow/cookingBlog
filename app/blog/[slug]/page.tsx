@@ -2,7 +2,7 @@ import React from "react";
 import Cat from "../../../public/Cat.webp";
 import Image from "next/image";
 
-const BlogPage = ({ params }: { params: { slug: string } }) => {
+const BlogPage = () => {
   return (
     <div className="mt-[100px]">
       <div className="flex  items-center justify-center flex-col gap-8">

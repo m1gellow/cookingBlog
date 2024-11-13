@@ -17,10 +17,26 @@ const News = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <BlogCard title="hello world" description="About my new product" button="Читать дальше"/>
-            <BlogCard title="hello world" description="About my new product" button="Читать дальше"/>
-            <BlogCard title="hello world" description="About my new product" button="Читать дальше"/>
-            <BlogCard title="hello world" description="About my new product" button="Читать дальше"/>
+        <BlogCard
+          title="hello world"
+          description="About my new product"
+          button="Читать дальше"
+        />
+        <BlogCard
+          title="hello world"
+          description="About my new product"
+          button="Читать дальше"
+        />
+        <BlogCard
+          title="hello world"
+          description="About my new product"
+          button="Читать дальше"
+        />
+        <BlogCard
+          title="hello world"
+          description="About my new product"
+          button="Читать дальше"
+        />
       </div>
     </div>
   );
