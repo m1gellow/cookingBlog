@@ -7,7 +7,7 @@ export default defineConfig({
   name: 'default',
   title: 'conditer',
 
-  projectId: 'b3xkj7t4',
+  projectId: 'cfpbzo6i',
   dataset: 'production',
 
   plugins: [structureTool(), visionTool()],
