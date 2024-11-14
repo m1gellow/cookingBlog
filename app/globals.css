@@ -24,6 +24,10 @@ h3{
 }
 
 
+.mainConatiner{
+    @apply px-[100px]
+}
+
 
 .link{
     font-size: 25px;

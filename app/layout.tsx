@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${playfairdisplay.variable} ${roboto.variable} antialiased`}
       >
         <Navbar />
-        <div className="px-[100px]">{children}</div>
+        <div className="">{children}</div>
       </body>
     </html>
   );

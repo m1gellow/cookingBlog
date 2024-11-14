@@ -4,8 +4,10 @@ import Devider1 from "../../../public/Devider1.png";
 import Devider2 from "../../../public/Devider2.png";
 import Devider3 from "../../../public/Devider3.png";
 
+export type TDeviderIndex = 1 | 2 | 3
+
 interface IDevider {
-  index: number;
+  index: TDeviderIndex;
 }
 
 const Devider: React.FC<IDevider> = ({ index }) => {

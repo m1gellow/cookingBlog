@@ -6,7 +6,6 @@ type TBorderColor = "pink" | "purple" | "green" | "blue" | "red";
 interface BenefitsCardProps {
   color: TBorderColor;
   content: string;
-  button: string;
   title: string;
 }
 
@@ -14,7 +13,6 @@ const BenefitsCard: React.FC<BenefitsCardProps> = ({
   color,
   content,
   title,
-  button,
 }) => {
   return (
     <div>
@@ -26,9 +24,6 @@ const BenefitsCard: React.FC<BenefitsCardProps> = ({
           <h3 className="uppercase line-clamp-3 text-[25px] sm:text-[20px] md:text-[20px] lg:text-[25px] xl:text-[30px] text-primary/80">
             {content}
           </h3>
-          {button && (
-            <button className="text-xl font-medium border-b-2">{button}</button>
-          )}
         </div>
       </div>
     </div>

@@ -13,29 +13,29 @@ interface IBlogCard {
 const BlogCard: React.FC<IBlogCard> = ({ title, description, button }) => {
   return (
     <div>
-      <div className="flex flex-col justify-center mt-[150px] items-center gap-3">
-        <div className="">
+      <div className="flex items-center  justify-center gap-4 flex-col">
+        <div>
           <Image
+            className="rounded-lg"
             src={Cat}
-            alt="blogImage"
-            className="rounded-[30px]"
-            width={400}
-            height={400}
+            width={500}
+            height={500}
+            alt="BlogImage"
           />
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <h2 className="text-[30px] sm:text-[30px] md:text-[35px] text-primary  lg:text-[25px] xl:text-[30px]">
+        <div className="flex items-center justify-center gap-4 flex-col max-w-[500px]">
+          <h2 className="uppercase flex flex-col items-center justify-center  text-[25px] sm:text-[25px] md:text-[25px]  xl:text-[30px]">
             {title}
           </h2>
-          <h3 className="uppercase line-clamp-2 text-[25px] sm:text-[20px] md:text-[20px] lg:text-[25px] xl:text-[20px] font-bold text-primary">
-            {description}
-          </h3>
+          <div className="max-w-[400px]">
+            <h3 className="line-clamp-1 text-primary/85 text-2xl">
+              {description}
+            </h3>
+          </div>
+          {button && (
+            <button className="text-xl font-medium border-b-2"><Link href={'/blog/1'}>{button}</Link></button>
+          )}
         </div>
-        {button && (
-          <button className="text-xl font-medium border-b-2">
-            <Link href={"/blog/1"}>Читать больше</Link>
-          </button>
-        )}
       </div>
     </div>
   );
