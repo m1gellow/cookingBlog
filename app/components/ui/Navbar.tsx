@@ -9,7 +9,7 @@ const Navbar = () => {
   const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   const closeMenu = (event: MouseEvent) => {
@@ -20,52 +20,39 @@ const Navbar = () => {
 
   useEffect(() => {
     document.addEventListener("mousedown", closeMenu);
-
     return () => {
       document.removeEventListener("mousedown", closeMenu);
     };
-  });
+  }, []); // Add an empty dependency array to run this effect only once
 
   return (
-    <nav ref={menuRef}>
-      <div className="absolute lg:hidden flex  justify-end items-center w-full  ">
-        <div>
-          <div className="flex justify-end items-end">
-            <AlignRight size={35} onClick={toggleMenu} />
+    <nav ref={menuRef} className="relative">
+      <div className="absolute lg:hidden flex justify-end items-center w-full">
+        <AlignRight
+          size={35}
+          onClick={toggleMenu}
+          aria-expanded={isOpen}
+          aria-controls="mobile-menu"
+          role="button"
+          tabIndex={0}
+        />
+        {isOpen && (
+          <div className="bg-white shadow-md py-5 px-4 rounded-md" id="mobile-menu">
+            <ul className="flex flex-col gap-4">
+              {Object.entries(pageConfig).map(([key, value]) => (
+                <li key={key}>
+                  <Link href={value} className="link">
+                    {key === 'about' ? 'О Нас' : key === 'catalog' ? 'Каталог' : 'Галерея десертов'}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
-
-          {isOpen ? (
-            <div className="bg-white shadow-md py-5 px-4 rounded-md">
-              <ul className="flex flex-col gap-4">
-                <li>
-                  <Link href={pageConfig.about} className="link">
-                    О Нас
-                  </Link>
-                </li>
-                <li>
-                  <Link href={pageConfig.catalog} className="link">
-                    Контакты
-                  </Link>
-                </li>
-                <li>
-                  <Link href={pageConfig.gallery} className="link">
-                    Галерея десертов
-                  </Link>
-                </li>
-                <li>
-                  <Link href={pageConfig.gallery} className="link">
-                    Каталог
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <div></div>
-          )}
-        </div>
+        )}
       </div>
-      <div className=" container mt-8">
-        <ul className="hidden lg:flex gap-10 justify-between  items-center">
+
+      <div className="container mt-8">
+        <ul className="hidden lg:flex gap-10 justify-between items-center">
           <li>
             <Link href="/#aboutUs" className="link">
               О Нас

@@ -7,37 +7,37 @@ interface IBlogCard {
   title: string;
   description: string;
   button: string;
-  image?: string;
+  image?: string; // You can use this prop if you want to make the image dynamic
 }
 
-const BlogCard: React.FC<IBlogCard> = ({ title, description, button }) => {
+const BlogCard: React.FC<IBlogCard> = ({ title, description, button, image = Cat }) => {
   return (
-    <div>
-      <div className="flex items-center  justify-center gap-4 flex-col">
-        <div>
-          <Image
-            className="rounded-lg"
-            src={Cat}
-            width={500}
-            height={500}
-            alt="BlogImage"
-          />
+    <article className="flex flex-col items-center justify-center gap-4">
+      <Image
+        className="rounded-lg"
+        src={image}
+        width={500}
+        height={500}
+        alt={`${title} image`}
+      />
+      <div className="flex flex-col items-center justify-center max-w-[500px]">
+        <h2 className="uppercase text-[25px] sm:text-[25px] md:text-[25px] xl:text-[30px] text-center">
+          {title}
+        </h2>
+        <div className="max-w-[400px]">
+          <h3 className="line-clamp-1 text-primary/85 text-2xl text-center">
+            {description}
+          </h3>
         </div>
-        <div className="flex items-center justify-center gap-4 flex-col max-w-[500px]">
-          <h2 className="uppercase flex flex-col items-center justify-center  text-[25px] sm:text-[25px] md:text-[25px]  xl:text-[30px]">
-            {title}
-          </h2>
-          <div className="max-w-[400px]">
-            <h3 className="line-clamp-1 text-primary/85 text-2xl">
-              {description}
-            </h3>
-          </div>
-          {button && (
-            <button className="text-xl font-medium border-b-2"><Link href={'/blog/1'}>{button}</Link></button>
-          )}
-        </div>
+        {button && (
+          <Link href={'/blog/1'}>
+            <button className="text-xl font-medium border-b-2">
+              {button}
+            </button>
+          </Link>
+        )}
       </div>
-    </div>
+    </article>
   );
 };
 
