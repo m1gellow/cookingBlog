@@ -23,7 +23,7 @@ const Welcome = () => {
       <MotionConfig transition={{ duration: 0.5 }}>
         <motion.div {...animationConfig}>
           <div className="flex flex-col items-center">
-            <h2 className="uppercase text-[40px] sm:text-[60px] md:text-[65px] lg:text-[70px] xl:text-[80px]">{title}</h2>
+            <h2 className="uppercase text-[30px] sm:text-[40px] md:text-[65px] lg:text-[70px] xl:text-[80px]">{title}</h2>
             <SectionDescription text={descriptionText} />
           </div>
         </motion.div>

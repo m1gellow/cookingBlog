@@ -29,13 +29,13 @@ const News = () => {
     <section id="blog" className="mt-[100px]">
       <div className="flex flex-col gap-8 items-center justify-center">
         <header className="flex flex-col gap-8 items-center justify-center text-center">
-          <h2 className="uppercase text-[40px] sm:text-[60px] md:text-[65px] lg:text-[70px] xl:text-[80px]">
+          <h2 className="uppercase text-[30px] sm:text-[40px] md:text-[65px] lg:text-[70px] xl:text-[80px]">
             Мой блог
           </h2>
           <h2 className="text-[40px] sm:text-[60px] md:text-[65px] lg:text-[70px] xl:text-[80px]">
             Новости, проекты, торты!
           </h2>
-          <h3 className="text-3xl">
+          <h3 className="text-xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
             veritatis consequuntur aliquam quas distinctio amet.
           </h3>

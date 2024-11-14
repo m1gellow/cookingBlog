@@ -19,7 +19,7 @@ const Benefits = () => {
           <motion.div
             initial={{ opacity: 0, y: "20px" }}
             whileInView={{ opacity: 1, y: "0" }}
-            className="flex flex-col items-center justify-center uppercase text-[40px] sm:text-[60px] md:text-[65px] lg:text-[70px] xl:text-[80px]"
+            className="flex flex-col items-center justify-center uppercase text-[30px] sm:text-[40px] md:text-[65px] lg:text-[70px] xl:text-[80px]"
           >
             <h2>Наши преимущества.</h2>
             <SectionDescription text="Преимущества, которые стоит попробовать!" />
