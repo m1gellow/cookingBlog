@@ -32,7 +32,7 @@ const News = () => {
           <h2 className="uppercase text-[30px] sm:text-[40px] md:text-[65px] lg:text-[70px] xl:text-[80px]">
             Мой блог
           </h2>
-          <h2 className="text-[40px] sm:text-[60px] md:text-[65px] lg:text-[70px] xl:text-[80px]">
+          <h2 className="text-[30px] sm:text-[40px] md:text-[65px] lg:text-[70px] xl:text-[80px]">
             Новости, проекты, торты!
           </h2>
           <h3 className="text-xl">

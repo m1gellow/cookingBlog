@@ -25,7 +25,7 @@ const BlogPage = () => {
       <div className="container flex flex-col gap-20">
         <div className="flex flex-col items-center justify-center ">
           <div>
-            <h2 className="text-[30px] font-light  sm:text-[35px] md:text-[40px] text-primary/80   lg:text-[40px] xl:text-[35px] ">
+            <h2 className="text-[20px] font-light  sm:text-[30px] md:text-[40px] text-primary/80   lg:text-[40px] xl:text-[35px] ">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Perspiciatis temporibus doloribus libero hic beatae pariatur qui
               necessitatibus inventore earum reprehenderit!
@@ -39,7 +39,7 @@ const BlogPage = () => {
           <p>
             By <Link href="https://vk.com/im?sel=2460419">Olga Kubay</Link>
           </p>
-          <h3 className="text-[30px] font-light  sm:text-[35px] md:text-[40px] text-primary/80   lg:text-[40px] xl:text-[35px] ">
+          <h3 className="text-[20px] font-light  sm:text-[30px] md:text-[40px] text-primary/80   lg:text-[40px] xl:text-[35px] ">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex dolores
             commodi dignissimos sequi cum impedit debitis porro. Exercitationem
             illo itaque consectetur libero iusto, cumque dolores eaque,
