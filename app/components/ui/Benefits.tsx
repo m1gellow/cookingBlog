@@ -1,46 +1,45 @@
-"use client";
+
 import React from "react";
 import BenefitsCard from "../shared/BenefitsCard";
-import { motion, MotionConfig } from "framer-motion";
+
 import SectionDescription from "../shared/SectionDescription";
+import { IBenefits } from "@/app/lib/types";
+import { getBenefitsData } from "@/app/lib/serverActions";
 
-const benefitsData = [
-  { color: "purple", title: "А как сделать?", content: "Здесь можно найти рецепты не только десертов, но и блюд на каждый день для всей семьи." },
-  { color: "pink", title: "А как сделать?", content: "Здесь можно найти рецепты не только десертов, но и блюд на каждый день для всей семьи." },
-  { color: "red", title: "А как сделать?", content: "Здесь можно найти рецепты не только десертов, но и блюд на каждый день для всей семьи." },
-  { color: "blue", title: "А как сделать?", content: "Здесь можно найти рецепты не только десертов, но и блюд на каждый день для всей семьи." },
-];
 
-const Benefits = () => {
+const Benefits = async() => {
+
+  const data: IBenefits[] = await getBenefitsData();
+
   return (
     <div className="mt-[100px]">
-      <MotionConfig transition={{ duration: 0.5 }}>
+    
         <div className="flex flex-col gap-8">
-          <motion.div
-            initial={{ opacity: 0, y: "20px" }}
-            whileInView={{ opacity: 1, y: "0" }}
-            className="flex flex-col items-center justify-center uppercase text-[30px] sm:text-[40px] md:text-[65px] lg:text-[70px] xl:text-[80px]"
+          <div
+           
+            className="flex flex-col items-center justify-center uppercase"
           >
             <h2>Наши преимущества.</h2>
             <SectionDescription text="Преимущества, которые стоит попробовать!" />
-          </motion.div>
+          </div>
           
-          <motion.div
-            initial={{ opacity: 0, y: "20px" }}
-            whileInView={{ opacity: 1, y: "0" }}
+          <div
+       
             className="grid grid-cols-1 lg:grid-cols-2 gap-4"
           >
-            {benefitsData.map((benefit, index) => (
-              <BenefitsCard
-                key={index} // Ideally, use a unique identifier instead of index
-                color='green'
+          {data.map((benefit, idx) =>(
+             <BenefitsCard
+                key={idx} 
+                color='red'
                 title={benefit.title}
-                content={benefit.content}
+                content={benefit.description}
               />
-            ))}
-          </motion.div>
+          ))}
+             
+       
+          </div>
         </div>
-      </MotionConfig>
+   
     </div>
   );
 };

@@ -1,41 +1,33 @@
 import React from "react";
-import { motion, MotionConfig } from "framer-motion";
-import AboutMeText from "../shared/AboutMeText";
 import SectionDescription from "../shared/SectionDescription";
+import { getAboutMeData } from "@/app/lib/serverActions";
+import { IAboutMe } from "@/app/lib/types";
+import AboutMeText from "../shared/AboutMeText";
 
-const animationConfig = {
-  initial: { opacity: 0, y: "20px" },
-  whileInView: { opacity: 1, y: "0" },
-  transition: { duration: 0.7 },
-};
+export const revalidate = 30;
 
-const Welcome = () => {
+const Welcome = async () => {
   const title = "О мне";
   const descriptionText = "Давайте познакомимся!";
-  const aboutMeTexts = [
-    "Я - Ольга Жгун. Профессиональный кондитер с высшим образованием режиссёра и многолетним опытом работы на телевидении",
-    "Lorem ipsum dolor sit amet, consectetur adipiscing",
-    "veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in",
-  ];
+
+  const data: IAboutMe[] = await getAboutMeData();
 
   return (
-    <div id="aboutUs" className="mt-[100px] flex flex-col gap-7 items-center">
-      <MotionConfig transition={{ duration: 0.5 }}>
-        <motion.div {...animationConfig}>
-          <div className="flex flex-col items-center">
-            <h2 className="uppercase text-[30px] sm:text-[40px] md:text-[65px] lg:text-[70px] xl:text-[80px]">{title}</h2>
-            <SectionDescription text={descriptionText} />
-          </div>
-        </motion.div>
-        <div className="my-4 flex">
-          <hr className="border-t border-gray-300 w-[100px]" />
+    <div id="aboutUs" className=" flex flex-col gap-7 items-center">
+      <div>
+        <div className="flex flex-col items-center">
+          <h2>{title}</h2>
+          <SectionDescription text={descriptionText} />
         </div>
-        <div>
-          {aboutMeTexts.map((text, index) => (
-            <AboutMeText key={index} devider={index === 0 ? 3 : undefined} text={text} />
-          ))}
-        </div>
-      </MotionConfig>
+      </div>
+      <div className="my-4 flex">
+        <hr className="border-t border-gray-300 w-[100px]" />
+      </div>
+      <div>
+        {data.map((content, idx) => (
+          <AboutMeText key={idx} devider={2} text={content.content} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -16,23 +16,22 @@ body::-webkit-scrollbar{
 
 h1{
     font-family: "Playfair Display", serif;
+    @apply text-[60px] sm:text-[80px] md:text-[85px] lg:text-[90px] xl:text-[120px] text-primary;
+
 }
 
+h2{
+    font-family: 'Playfire Display', serif;
+    @apply  text-[25px] sm:text-[25px] md:text-[35px] lg:text-[40px] xl:text-[50px];
+}
 
 h3{
     font-family: "Roboto", serif;
+    @apply text-[25px] text-primary/70  sm:text-[25px] md:text-[30px]  xl:text-[35px];
 }
-
-
-.mainConatiner{
-    @apply px-[100px]
-}
-
 
 .link{
-    font-size: 25px;
-    font-weight: 400;
-    transition: all .2s ease;
+    @apply text-[25px] font-normal transition-all duration-200 ease-in-out;
 }
 
 .link:hover{

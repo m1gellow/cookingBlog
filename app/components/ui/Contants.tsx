@@ -3,7 +3,10 @@ import React from 'react'
 const Contants = () => {
   return (
     <div>
-dwad
+        <div>
+          <h1>Свяжитесь со мной!</h1>
+        </div>
+        
     </div>
   )
 }

@@ -1,54 +1,39 @@
 import React from "react";
 import BlogCard from "../shared/BlogCard";
+import { getBlogData } from "@/app/lib/serverActions";
+import { IBlogPosts } from "@/app/lib/types";
 
-const blogPosts = [
-  {
-    title: "Hello World",
-    description: "About my new product and how to do like me if you want to pair something.",
-    button: "Читать дальше",
-  },
-  {
-    title: "Hello World",
-    description: "About my new product.",
-    button: "Читать дальше",
-  },
-  {
-    title: "Hello World",
-    description: "About my new product.",
-    button: "Читать дальше",
-  },
-  {
-    title: "Hello World",
-    description: "About my new product.",
-    button: "Читать дальше",
-  },
-];
 
-const News = () => {
+const News = async() => {
+
+  const data: IBlogPosts[] = await getBlogData();
+
+
   return (
     <section id="blog" className="mt-[100px]">
       <div className="flex flex-col gap-8 items-center justify-center">
         <header className="flex flex-col gap-8 items-center justify-center text-center">
-          <h2 className="uppercase text-[30px] sm:text-[40px] md:text-[65px] lg:text-[70px] xl:text-[80px]">
+          <h2 className="uppercase">
             Мой блог
           </h2>
-          <h2 className="text-[30px] sm:text-[40px] md:text-[65px] lg:text-[70px] xl:text-[80px]">
+          <h2>
             Новости, проекты, торты!
           </h2>
-          <h3 className="text-xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi,
-            veritatis consequuntur aliquam quas distinctio amet.
-          </h3>
         </header>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post, index) => (
-            <BlogCard
-              key={index} // Ideally, use a unique identifier instead of index
-              title={post.title}
-              description={post.description}
-              button={post.button}
-            />
-          ))}
+        <div className="grid grid-cols-1  gap-8 md:grid-cols-2 lg:grid-cols-3">
+           {data.map((post, idx) => (
+            <BlogCard key={idx} slug={post.currentSlug} image={post.titleImage} button="Читать дальше" title={post.title} description={post.smallDescription}/>
+           ))}
+           {data.map((post, idx) => (
+            <BlogCard key={idx} slug={post.currentSlug} image={post.titleImage} button="Читать дальше" title={post.title} description={post.smallDescription}/>
+           ))}
+           {data.map((post, idx) => (
+            <BlogCard key={idx} slug={post.currentSlug} image={post.titleImage} button="Читать дальше" title={post.title} description={post.smallDescription}/>
+           ))}
+           {data.map((post, idx) => (
+            <BlogCard key={idx} slug={post.currentSlug} image={post.titleImage} button="Читать дальше" title={post.title} description={post.smallDescription}/>
+           ))}
+         
         </div>
       </div>
     </section>

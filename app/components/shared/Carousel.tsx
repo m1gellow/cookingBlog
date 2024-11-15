@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Cat from "../../../public/Cat.webp";
+import { urlFor } from "@/app/lib/sanity";
 
-const images = [Cat, Cat, Cat, Cat];
 
-const ImageCarousel = () => {
+const ImageCarousel = ({image}: {image: string}) => {
+
+  const images = [image, image, image]
+
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = () => {
@@ -28,9 +30,9 @@ const ImageCarousel = () => {
           <div key={index} className="relative w-full h-[1000px] overflow-hidden">
             <Image
               className="rounded"
-              src={src}
+              src={urlFor(image).url()}
               alt="Example Image"
-         
+             fill
               objectFit="cover"
             />
           </div>
