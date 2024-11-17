@@ -27,8 +27,8 @@ const ImageCarousel = ({image}: {image: string}) => {
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {images.map((src, index) => (
-          <div key={index} className="relative w-full h-[1000px] overflow-hidden">
-            <Image
+          <div key={index} className="relative w-full h-[200px] sm:h-[400px] md:h-[600px] lg:h-[800px] xl:h-[1000px] overflow-hidden">
+            <Image 
               className="rounded"
               src={urlFor(image).url()}
               alt="Example Image"

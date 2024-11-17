@@ -40,6 +40,14 @@ export default{
                     type: 'block'
                 }
             ]
+        },
+        {
+            name: "tags",
+            title: "Tags",
+            type: "array",
+            of: [
+                {type: "reference", to: [{type: "tags"}]},
+            ]
         }
     ]
 }

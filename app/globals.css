@@ -30,6 +30,16 @@ h3{
     @apply text-[25px] text-primary/70  sm:text-[25px] md:text-[30px]  xl:text-[35px];
 }
 
+h4{
+    font-family: "Roboto", serif;
+   
+}
+
+
+.contactsLink{
+    @apply border rounded-[50%] px-5 py-5 hover:border-pink-500 transition-colors duration-75 
+}
+
 .link{
     @apply text-[25px] font-normal transition-all duration-200 ease-in-out;
 }

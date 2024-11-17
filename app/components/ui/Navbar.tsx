@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <nav ref={menuRef} className="relative">
-      <div className="absolute lg:hidden flex justify-end items-center w-full">
+      <div className="absolute flex flex-col px-4 justify-end items-end lg:hidden w-full">
         <AlignRight
           size={35}
           onClick={toggleMenu}
@@ -59,7 +59,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href={pageConfig.catalog} className="link">
+            <Link href={'/#contacts'} className="link">
               Контакты
             </Link>
           </li>

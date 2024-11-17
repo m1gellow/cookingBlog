@@ -1,7 +1,10 @@
+'use client'
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
 import { urlFor } from "@/app/lib/sanity";
+import MainButton from "./MainButton";
+import TagCard from "./TagCard";
 
 interface IBlogCard {
   title: string;
@@ -9,6 +12,9 @@ interface IBlogCard {
   button?: string;
   image: string;
   slug: string;
+  tag: {
+    title: string;
+  }[];
 }
 
 const BlogCard: React.FC<IBlogCard> = ({
@@ -17,24 +23,32 @@ const BlogCard: React.FC<IBlogCard> = ({
   button,
   image,
   slug,
+  tag,
 }) => {
   return (
-    <article className="flex flex-col items-center justify-center gap-4">
+    <article className="flex flex-col items-center gap-4">
       <Image
         className="rounded-lg"
         src={urlFor(image).url()}
-        width={500}
-        height={500}
+        width={1000}
+        height={1000}
         alt={`${title} image`}
       />
-      <div className="flex flex-col items-center justify-center max-w-[500px]">
-        <h2 className="uppercase text-[35px]">{title}</h2>
+      <div className="flex flex-col items-center justify-center gap-4 ">
+        <h2 className="uppercase sm:text-[30px] lg:text-[35px]">{title}</h2>
+
+        <div className="flex items-center justify-center gap-4">
+          {tag.map((tag, idx) => (
+            <TagCard key={idx} tag={tag.title} />
+          ))}
+        </div>
+
         <div className="max-w-[400px] line-clamp-2">
-          <h3 className="text-[30px]">{description}</h3>
+          <h3 className="text-[20px] lg:text-[25px]">{description}</h3>
         </div>
         {button && (
           <Link href={`/blog/${slug}`}>
-            <button className="text-xl font-medium border-b-2">{button}</button>
+            <MainButton text={button} variant="filled" />
           </Link>
         )}
       </div>

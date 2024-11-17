@@ -1,39 +1,33 @@
 import React from "react";
 import BlogCard from "../shared/BlogCard";
-import { getBlogData } from "@/app/lib/serverActions";
 import { IBlogPosts } from "@/app/lib/types";
+import TagLine from "../shared/TagLine";
 
+interface INews {
+  posts: IBlogPosts[];
+}
 
-const News = async() => {
-
-  const data: IBlogPosts[] = await getBlogData();
-
-
+const News: React.FC<INews> = async ({ posts }) => {
   return (
     <section id="blog" className="mt-[100px]">
       <div className="flex flex-col gap-8 items-center justify-center">
         <header className="flex flex-col gap-8 items-center justify-center text-center">
-          <h2 className="uppercase">
-            Мой блог
-          </h2>
-          <h2>
-            Новости, проекты, торты!
-          </h2>
-        </header>
-        <div className="grid grid-cols-1  gap-8 md:grid-cols-2 lg:grid-cols-3">
-           {data.map((post, idx) => (
-            <BlogCard key={idx} slug={post.currentSlug} image={post.titleImage} button="Читать дальше" title={post.title} description={post.smallDescription}/>
-           ))}
-           {data.map((post, idx) => (
-            <BlogCard key={idx} slug={post.currentSlug} image={post.titleImage} button="Читать дальше" title={post.title} description={post.smallDescription}/>
-           ))}
-           {data.map((post, idx) => (
-            <BlogCard key={idx} slug={post.currentSlug} image={post.titleImage} button="Читать дальше" title={post.title} description={post.smallDescription}/>
-           ))}
-           {data.map((post, idx) => (
-            <BlogCard key={idx} slug={post.currentSlug} image={post.titleImage} button="Читать дальше" title={post.title} description={post.smallDescription}/>
-           ))}
-         
+          <h2 className="uppercase">Мой блог</h2>
+          <h2>Новости, проекты, торты!</h2>
+        </header>{" "}
+        <TagLine />
+        <div className="grid grid-cols-1 justify-center items-center  gap-8 md:grid-cols-2 lg:grid-cols-2">
+          {posts.map((post, idx) => (
+            <BlogCard
+              tag={post.tags}
+              key={idx}
+              slug={post.currentSlug}
+              image={post.titleImage}
+              button="Читать дальше"
+              title={post.title}
+              description={post.smallDescription}
+            />
+          ))}
         </div>
       </div>
     </section>

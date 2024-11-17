@@ -48,8 +48,25 @@ async function getBlogData() {
     titleImage,
     smallDescription,
     content,
+    tags[]->{
+    title
+    }
  }
   `
+  
+
+  const data = await client.fetch(query);
+  return data;
+}
+
+async function getTags() {
+  const query = `
+  *[_type == "tags"]{
+  _id,
+    title
+}
+  `
+  
 
   const data = await client.fetch(query);
   return data;
@@ -72,5 +89,36 @@ async function getCertainBlog(slug: string) {
   return data;
 }
 
+async function getPostsByTag(tag: string) {
+  const query = `
+  *[_type == "blog" && references(*[_type == "tags" && title == "${tag}"]._id)]{
+  title,
+    "currentSlug": slug.current,
+    timeOfReading,
+    titleImage,
+    smallDescription,
+    content,
+    tags[]->{
+    title
+    }
+}
+  `
+  const data = await client.fetch(query);
+  return data;
+}
+async function getContacts() {
+  const query = `
+  *[_type == "contacts"]{
+  socialPlatform,
+    link
+}
+  `
+  const data = await client.fetch(query);
+  return data;
+}
 
-export {getHeaderData, getAboutMeData, getBenefitsData, getBlogData, getCertainBlog}
+
+
+
+
+export {getHeaderData, getAboutMeData, getBenefitsData, getBlogData, getTags, getCertainBlog, getPostsByTag, getContacts}

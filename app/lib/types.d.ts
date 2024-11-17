@@ -22,4 +22,17 @@ export interface IBlogPosts{
     titleImage: string;
     smallDescription: string;
     content: TypedObject | TypedObject[];
+    tags:{
+        title: string;
+    }[]
+}
+
+export interface ITags{
+    title: string;
+    _id: string;
+}
+
+export interface IContacts{
+    socialPlatform: string;
+    link: string;
 }

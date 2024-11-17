@@ -7,12 +7,10 @@ import { PortableText } from "next-sanity";
 
 type tParams = Promise<{ slug: string }>;
 
-
-const BlogPage = async (props: { params: tParams }) => {
+const PostPage = async (props: { params: tParams }) => {
   const { slug } = await props.params;
   try {
     const data: IBlogPosts = await getCertainBlog(slug);
-
 
     if (!data) {
       return <div>No blog post found.</div>;
@@ -56,4 +54,4 @@ const BlogPage = async (props: { params: tParams }) => {
   }
 };
 
-export default BlogPage;
+export default PostPage;

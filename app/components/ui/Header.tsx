@@ -11,7 +11,7 @@ const Header = async () => {
 
   return (
     <header className="h-screen flex items-center justify-center">
-      <div className="flex flex-col lg:flex-row  lg:gap-20">
+      <div className="flex flex-col lg:flex-row gap-10  lg:gap-20">
         <div className="flex-1 flex flex-col items-center lg:items-start gap-4">
           <p className="text-2xl">
             <Link
