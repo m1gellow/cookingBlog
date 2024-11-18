@@ -25,7 +25,7 @@ const Header = async () => {
           </p>
           <h1>{data.title}</h1>
           <div className="flex gap-4">
-            <MainButton text="Выбрать торт"   variant="filled" />
+            <MainButton text="Выбрать торт" href="/catalog"  variant="filled" />
             <MainButton text="Читать блог" href="/#blog" variant="ghost" />
           </div>
         </div>

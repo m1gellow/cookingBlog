@@ -3,6 +3,7 @@ import Benefits from "./Benefits";
 import Blog from "./Blog";
 import Contacts from "./Contacts";
 import header from "./Header";
+import Product from "./Product";
 import Tags from "./Tags";
 
 export const schemaTypes = [
@@ -11,5 +12,6 @@ export const schemaTypes = [
     Benefits,
     Blog,
     Tags,
-    Contacts
+    Contacts,
+    Product,
 ]

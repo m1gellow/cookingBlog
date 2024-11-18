@@ -19,7 +19,7 @@ export interface IBlogPosts{
     title: string
     currentSlug: string;
     timeOfReading: string;
-    titleImage: string;
+    titleImages: string[];
     smallDescription: string;
     content: TypedObject | TypedObject[];
     tags:{
@@ -35,4 +35,14 @@ export interface ITags{
 export interface IContacts{
     socialPlatform: string;
     link: string;
+}
+
+export interface IProducts{
+    productTitle: string;
+    productPrice: string;
+      productDescription: string;
+      slug: string;
+       productButton: string;
+       productImages: string[];
+       buttonLink: string;
 }

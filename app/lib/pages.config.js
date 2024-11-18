@@ -1,9 +1,10 @@
 class PageConfig{
     home = "/";
-    about = "/about";
-    contacts = "/contacts";
-    gallery = "/gallery";
-    catalog = "/catalog";
+    about = "/#about";
+    contacts = "/#contacts";
+    gallery = "/#gallery";
+    catalog = "/#catalog";
+    blog = "/#blog";
 
     newPage = '/'
 

@@ -1,6 +1,8 @@
 
 import { client } from "./sanity";
 
+
+//Action to get data for Header.
 async function getHeaderData() {
     const query = ` 
     *[_type == "header"]{
@@ -14,6 +16,7 @@ async function getHeaderData() {
     return data;
 }
 
+// Action to get data for "About me" section.
 async function getAboutMeData() {
   const query = ` 
 *[_type == "aboutMe"]{
@@ -27,6 +30,8 @@ async function getAboutMeData() {
   return data;
 }
 
+// Action to get data for "Benefits" section.
+
 async function getBenefitsData() {
   const query = ` 
   *[_type == "benefits"]{
@@ -39,13 +44,15 @@ async function getBenefitsData() {
     return data;
 }
 
+
+// Action to get data for Blog.
 async function getBlogData() {
   const query = `
    *[_type == "blog"]{
   title,
     "currentSlug": slug.current,
     timeOfReading,
-    titleImage,
+    titleImages[],
     smallDescription,
     content,
     tags[]->{
@@ -59,6 +66,7 @@ async function getBlogData() {
   return data;
 }
 
+// Action to get all tags with id and title
 async function getTags() {
   const query = `
   *[_type == "tags"]{
@@ -72,14 +80,14 @@ async function getTags() {
   return data;
 }
 
-
+// Action to get post by certain slug.
 async function getCertainBlog(slug: string) {
   const query = `
      *[_type == "blog" && slug.current == '${slug}']{
   title,
     "currentSlug": slug.current,
     timeOfReading,
-    titleImage,
+    titleImages[],
     smallDescription,
     content,
  }[0]
@@ -89,13 +97,14 @@ async function getCertainBlog(slug: string) {
   return data;
 }
 
+// Action to get post by certain Tag.
 async function getPostsByTag(tag: string) {
   const query = `
   *[_type == "blog" && references(*[_type == "tags" && title == "${tag}"]._id)]{
   title,
     "currentSlug": slug.current,
     timeOfReading,
-    titleImage,
+    titleImages[],
     smallDescription,
     content,
     tags[]->{
@@ -106,6 +115,8 @@ async function getPostsByTag(tag: string) {
   const data = await client.fetch(query);
   return data;
 }
+
+// Action to get data for "Contacts" section.
 async function getContacts() {
   const query = `
   *[_type == "contacts"]{
@@ -118,7 +129,50 @@ async function getContacts() {
 }
 
 
+async function getAllProducts() {
+  const query = `
+  *[_type == "product"]{
+   productTitle,
+  productPrice,
+    productDescription,
+    "slug": slug.current,
+     productButton,
+     productImages[],
+     buttonLink
+}
+  `
+  const data = await client.fetch(query);
+  return data;
+}
+
+async function getProductBySlug(slug: string) {
+  const query = `
+*[_type == "product" && slug.current == "${slug}"]{
+   productTitle,
+  productPrice,
+    productDescription,
+     productButton,
+     productImages[],
+     buttonLink
+}[0]
+  `
+  const data = await client.fetch(query);
+  return data;
+}
 
 
 
-export {getHeaderData, getAboutMeData, getBenefitsData, getBlogData, getTags, getCertainBlog, getPostsByTag, getContacts}
+
+
+export {
+  getHeaderData, 
+  getAboutMeData, 
+  getBenefitsData, 
+  getBlogData, 
+  getTags, 
+  getCertainBlog, 
+  getPostsByTag, 
+  getContacts, 
+  getAllProducts,
+  getProductBySlug
+}

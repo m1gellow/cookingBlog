@@ -3,13 +3,11 @@ import Welcome from "./components/ui/Welcome";
 import Benefits from "./components/ui/Benefits";
 import Devider from "./components/shared/Devider";
 import News from "./components/ui/News";
-import Footer from "./components/ui/Footer";
 import { getBlogData } from "./lib/serverActions";
 import { IBlogPosts } from "./lib/types";
 import Contacts from "./components/ui/Contacts";
 
 export default async function Home() {
-
   const data: IBlogPosts[] = await getBlogData();
 
   return (
@@ -20,12 +18,10 @@ export default async function Home() {
       <Benefits />
       <Devider index={3} />
 
-      <News posts={data}/>
+      <News posts={data} />
 
-      <Devider index={2}/>
-      <Contacts/>
-
-      <Footer />
+      <Devider index={2} />
+      <Contacts />
     </div>
   );
 }

@@ -22,9 +22,17 @@ export default{
             title: "Time of Reading blog post"
         },
         {
-            name: "titleImage",
-            type: "image",
-            title: "Title image", 
+            name: "titleImages",
+            type: "array",
+            title: "Images of the blog post",
+            of:[
+                {
+                    type: "image",
+                    options:{
+                        hotspot: true
+                    }
+                }
+            ] 
         },
         {
             name: "smallDescription",

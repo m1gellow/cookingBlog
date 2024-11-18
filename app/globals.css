@@ -5,6 +5,9 @@
 :root{
     --primary: #20202036;
 }
+html{
+    scroll-behavior: smooth;
+}
 
 body{
     font-family: "Playfair Display", serif;

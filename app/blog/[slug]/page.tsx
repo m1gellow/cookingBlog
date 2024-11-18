@@ -23,8 +23,8 @@ const PostPage = async (props: { params: tParams }) => {
             {data.title}
           </h1>
         </div>
-        <div className="relative w-full overflow-hidden">
-          <ImageCarousel image={data.titleImage} />
+        <div className="relative w-full  overflow-hidden">
+          <ImageCarousel images={data.titleImages} />
         </div>
         <div className="flex flex-col gap-20">
           <div className="flex flex-col items-center justify-center">

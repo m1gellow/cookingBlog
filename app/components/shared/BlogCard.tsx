@@ -8,9 +8,9 @@ import TagCard from "./TagCard";
 
 interface IBlogCard {
   title: string;
-  description: string;
+  description?: string;
   button?: string;
-  image: string;
+  images: string[];
   slug: string;
   tag: {
     title: string;
@@ -21,7 +21,7 @@ const BlogCard: React.FC<IBlogCard> = ({
   title,
   description,
   button,
-  image,
+  images,
   slug,
   tag,
 }) => {
@@ -29,7 +29,7 @@ const BlogCard: React.FC<IBlogCard> = ({
     <article className="flex flex-col items-center gap-4">
       <Image
         className="rounded-lg"
-        src={urlFor(image).url()}
+        src={urlFor(images[0]).url()}
         width={1000}
         height={1000}
         alt={`${title} image`}

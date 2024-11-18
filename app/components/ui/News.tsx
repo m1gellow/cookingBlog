@@ -22,7 +22,7 @@ const News: React.FC<INews> = async ({ posts }) => {
               tag={post.tags}
               key={idx}
               slug={post.currentSlug}
-              image={post.titleImage}
+              images={post.titleImages}
               button="Читать дальше"
               title={post.title}
               description={post.smallDescription}

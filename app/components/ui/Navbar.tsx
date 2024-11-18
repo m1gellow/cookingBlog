@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import { pageConfig } from "../../lib/pages.config";
 import { AlignRight } from "lucide-react";
 
 const Navbar = () => {
@@ -23,11 +22,11 @@ const Navbar = () => {
     return () => {
       document.removeEventListener("mousedown", closeMenu);
     };
-  }, []); // Add an empty dependency array to run this effect only once
+  }, []);
 
   return (
-    <nav ref={menuRef} className="relative">
-      <div className="absolute flex flex-col px-4 justify-end items-end lg:hidden w-full">
+    <nav ref={menuRef} className="relative z-20">
+      <div className="absolute -translate-y-20  flex flex-col px-4 justify-end items-end lg:hidden w-full">
         <AlignRight
           size={35}
           onClick={toggleMenu}
@@ -37,16 +36,43 @@ const Navbar = () => {
           tabIndex={0}
         />
         {isOpen && (
-          <div className="bg-white shadow-md py-5 px-4 rounded-md" id="mobile-menu">
-            <ul className="flex flex-col gap-4">
-              {Object.entries(pageConfig).map(([key, value]) => (
-                <li key={key}>
-                  <Link href={value} className="link">
-                    {key === 'about' ? 'О Нас' : key === 'catalog' ? 'Каталог' : 'Галерея десертов'}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <div
+            className="bg-white shadow-md py-5 px-4 rounded-md"
+            id="mobile-menu"
+          >
+            <div className="flex flex-col gap-4">
+              <Link href="/" className="link" onClick={() => setIsOpen(false)}>
+                Домой
+              </Link>
+              <Link
+                href="#contacts"
+                className="link"
+                onClick={() => setIsOpen(false)}
+              >
+                Контакты
+              </Link>
+              <Link
+                href="#gallery"
+                className="link"
+                onClick={() => setIsOpen(false)}
+              >
+                Галерея Десертов
+              </Link>
+              <Link
+                href="#blog"
+                className="link"
+                onClick={() => setIsOpen(false)}
+              >
+                Блог
+              </Link>
+              <Link
+                href="#blog"
+                className="link"
+                onClick={() => setIsOpen(false)}
+              >
+                Блог
+              </Link>
+            </div>
           </div>
         )}
       </div>
@@ -54,27 +80,27 @@ const Navbar = () => {
       <div className="container mt-8">
         <ul className="hidden lg:flex gap-10 justify-between items-center">
           <li>
-            <Link href="/#aboutUs" className="link">
+            <Link href="#about" className="link">
               О Нас
             </Link>
           </li>
           <li>
-            <Link href={'/#contacts'} className="link">
+            <Link href="#contacts" className="link">
               Контакты
             </Link>
           </li>
           <li>
-            <Link href={pageConfig.home} className="link">
+            <Link href="/" className="link">
               Logo
             </Link>
           </li>
           <li>
-            <Link href={pageConfig.gallery} className="link">
+            <Link href="#gallery" className="link">
               Галерея десертов
             </Link>
           </li>
           <li>
-            <Link href="/#blog" className="link">
+            <Link href="#blog" className="link">
               Блог
             </Link>
           </li>

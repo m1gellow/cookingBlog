@@ -3,11 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { urlFor } from "@/app/lib/sanity";
 
-
-const ImageCarousel = ({image}: {image: string}) => {
-
-  const images = [image, image, image]
-
+const ImageCarousel = ({ images }: { images: string[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextImage = () => {
@@ -21,34 +17,29 @@ const ImageCarousel = ({image}: {image: string}) => {
   };
 
   return (
-    <div className="relative w-full h-[200px] sm:h-[400px] md:h-[600px] lg:h-[800px] xl:h-[1000px] overflow-hidden">
-      <div
-        className="absolute inset-0 transition-transform duration-500"
-        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-      >
-        {images.map((src, index) => (
-          <div key={index} className="relative w-full h-[200px] sm:h-[400px] md:h-[600px] lg:h-[800px] xl:h-[1000px] overflow-hidden">
-            <Image 
-              className="rounded"
-              src={urlFor(image).url()}
-              alt="Example Image"
-             fill
-              objectFit="cover"
-            />
-          </div>
-        ))}
+    <div className="relative flex justify-center items-center  ">
+
+      <div className="relative w-[1000px] overflow-hidden">
+        <Image
+          className="rounded"
+          src={urlFor(images[currentIndex]).url()}
+          alt="Example Image"
+       
+          width={1000}
+          height={1000}
+        />
       </div>
       <button
         onClick={prevImage}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg"
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow"
       >
-        &#10094; {/* Left Arrow */}
+        &#10094;
       </button>
       <button
         onClick={nextImage}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg"
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow"
       >
-        &#10095; {/* Right Arrow */}
+        &#10095;
       </button>
     </div>
   );
