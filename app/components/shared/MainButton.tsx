@@ -28,7 +28,7 @@ const MainButton: React.FC<IMainButton> = ({ text, variant, href }) => {
     return (
       <button className="text-black shadow-xl border-primary border  font-bold py-4 px-6 rounded w-max text-xl ">
         {href ? (
-          <Link target="_blank" href={href}>
+          <Link  href={href}>
             {text}
           </Link>
         ) : (

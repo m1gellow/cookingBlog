@@ -2,13 +2,37 @@ import React from "react";
 import Link from "next/link";
 import ImageCarousel from "@/app/components/shared/Carousel";
 import { IBlogPosts } from "@/app/lib/types";
-import { getCertainBlog } from "@/app/lib/serverActions";
+import { getBlogData, getCertainBlog } from "@/app/lib/serverActions";
 import { PortableText } from "next-sanity";
+import { Metadata } from "next";
+
+export const revalidate = 30;
 
 type tParams = Promise<{ slug: string }>;
 
+export async function generateMetadata(props: {
+  params: tParams;
+}): Promise<Metadata> {
+  const { slug } = await props.params;
+  const data: IBlogPosts = await getCertainBlog(slug);
+
+  return {
+    title: data.title,
+    description: data.smallDescription,
+  };
+}
+
+export async function generateStaticParams() {
+  const data: IBlogPosts[] = await getBlogData();
+
+  return data.map((post) => ({
+    slug: post.currentSlug,
+  }));
+}
+
 const PostPage = async (props: { params: tParams }) => {
   const { slug } = await props.params;
+
   try {
     const data: IBlogPosts = await getCertainBlog(slug);
 
@@ -23,7 +47,7 @@ const PostPage = async (props: { params: tParams }) => {
             {data.title}
           </h1>
         </div>
-        <div className="relative w-full  overflow-hidden">
+        <div className="relative w-full overflow-hidden">
           <ImageCarousel images={data.titleImages} />
         </div>
         <div className="flex flex-col gap-20">

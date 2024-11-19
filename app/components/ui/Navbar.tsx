@@ -2,10 +2,15 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { AlignRight } from "lucide-react";
+import {pageConfig} from '../../lib/pages.config';
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
@@ -26,7 +31,7 @@ const Navbar = () => {
 
   return (
     <nav ref={menuRef} className="relative z-20">
-      <div className="absolute -translate-y-20  flex flex-col px-4 justify-end items-end lg:hidden w-full">
+      <div className="absolute -translate-y-[30px] flex flex-col px-4 items-end lg:hidden w-full">
         <AlignRight
           size={35}
           onClick={toggleMenu}
@@ -41,32 +46,25 @@ const Navbar = () => {
             id="mobile-menu"
           >
             <div className="flex flex-col gap-4">
-              <Link href="/" className="link" onClick={() => setIsOpen(false)}>
+              <Link href={pathname !== '/' ? '/' : pageConfig.home} className="link" onClick={() => setIsOpen(false)}>
                 Домой
               </Link>
               <Link
-                href="#contacts"
+                href={pathname !== '/' ? '/#contacts' : pageConfig.contacts}
                 className="link"
                 onClick={() => setIsOpen(false)}
               >
                 Контакты
               </Link>
               <Link
-                href="#gallery"
+               href={pageConfig.catalog}
                 className="link"
                 onClick={() => setIsOpen(false)}
               >
-                Галерея Десертов
+                Товары
               </Link>
               <Link
-                href="#blog"
-                className="link"
-                onClick={() => setIsOpen(false)}
-              >
-                Блог
-              </Link>
-              <Link
-                href="#blog"
+             href={pathname !== '/' ? '/#blog' : pageConfig.blog}
                 className="link"
                 onClick={() => setIsOpen(false)}
               >
@@ -80,27 +78,27 @@ const Navbar = () => {
       <div className="container mt-8">
         <ul className="hidden lg:flex gap-10 justify-between items-center">
           <li>
-            <Link href="#about" className="link">
+            <Link href={pathname !== '/' ? '/#about' : pageConfig.about} className="link">
               О Нас
             </Link>
           </li>
           <li>
-            <Link href="#contacts" className="link">
+            <Link href={pathname !== '/' ? '/#contacts' : pageConfig.contacts}  className="link">
               Контакты
             </Link>
           </li>
           <li>
-            <Link href="/" className="link">
+            <Link href={pathname !== '/' ? '/' : pageConfig.home}  className="link">
               Logo
             </Link>
           </li>
           <li>
-            <Link href="#gallery" className="link">
-              Галерея десертов
+            <Link href={ pageConfig.catalog}  className="link">
+              Товары
             </Link>
           </li>
           <li>
-            <Link href="#blog" className="link">
+            <Link href={pathname !== '/' ? '/#blog' : pageConfig.blog}  className="link">
               Блог
             </Link>
           </li>

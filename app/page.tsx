@@ -2,10 +2,20 @@ import Header from "./components/ui/Header";
 import Welcome from "./components/ui/Welcome";
 import Benefits from "./components/ui/Benefits";
 import Devider from "./components/shared/Devider";
-import News from "./components/ui/News";
 import { getBlogData } from "./lib/serverActions";
 import { IBlogPosts } from "./lib/types";
 import Contacts from "./components/ui/Contacts";
+import CardsGrid from "./components/ui/CardsGrid";
+
+export const revalidate = 30;
+
+export async function generateStaticParams() {
+  const data = await getBlogData();
+
+  return data.map(({post}: {post: string}) => ({
+    slug: post
+  }))
+}
 
 export default async function Home() {
   const data: IBlogPosts[] = await getBlogData();
@@ -18,7 +28,7 @@ export default async function Home() {
       <Benefits />
       <Devider index={3} />
 
-      <News posts={data} />
+      <CardsGrid posts={data} />
 
       <Devider index={2} />
       <Contacts />

@@ -1,5 +1,5 @@
 
-// import { TypedObject } from "sanity";
+import { TypedObject } from "sanity";
 export interface HeaderData{
     title: string;
     headerImage: string;

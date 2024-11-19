@@ -2,18 +2,39 @@ import React from "react";
 import ImageCarousel from "@/app/components/shared/Carousel";
 import MainButton from "@/app/components/shared/MainButton";
 import { IProducts } from "@/app/lib/types";
-import { getProductBySlug } from "@/app/lib/serverActions";
+import { getAllProducts, getProductBySlug } from "@/app/lib/serverActions";
+import { Metadata } from "next";
 
+export const revalidate = 30;
 type tParams = Promise<{ slug: string }>;
+
+export async function generateMetadata(props: {
+  params: tParams;
+}): Promise<Metadata> {
+  const { slug } = await props.params;
+  const data: IProducts = await getProductBySlug(slug);
+
+  return {
+    title: data.productTitle,
+    description: data.productDescription,
+  };
+}
+
+export async function generateStaticParams() {
+  const data: IProducts[] = await getAllProducts();
+
+  return data.map((product) => ({
+    slug: product.slug,
+  }));
+}
 
 const ProductPage = async (props: { params: tParams }) => {
   const { slug } = await props.params;
 
   const data: IProducts = await getProductBySlug(slug);
 
-
   return (
-    <div className="mt-[200px]  container flex justify-center items-center flex-col lg:flex-row  gap-10">
+    <div className="mt-[100px] lg:mt-[200px]  container flex justify-center items-center flex-col lg:flex-row  gap-10">
       <div className="relative w-full overflow-hidden flex-1">
         <ImageCarousel images={data.productImages} />
       </div>

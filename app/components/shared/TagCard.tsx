@@ -5,7 +5,7 @@ interface ITagCard {
   tag: string;
 }
 
-const TagCard: React.FC<ITagCard> = ({ tag }) => {
+const TagCard: React.FC<ITagCard> = ({tag}: {tag: string}) => {
   return (
     <div>
       <div className="border-pink-500/35 border inline-flex  rounded-md px-6 ">

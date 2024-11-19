@@ -1,10 +1,9 @@
 import React from "react";
 import ProductCard from "../shared/ProductCard";
 import { IProducts } from "@/app/lib/types";
-import { getAllProducts } from "@/app/lib/serverActions";
 
-const Catalog = async () => {
-  const data: IProducts[] = await getAllProducts();
+
+const Catalog = async ({products}: {products: IProducts[]}) => {
 
   return (
     <div>
@@ -15,7 +14,7 @@ const Catalog = async () => {
             <h2>Здесь вы можете приобрести наши изделия!</h2>
           </header>{" "}
           <div className="grid grid-cols-1 justify-center items-center  gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {data.map((product, idx) => (
+            {products.map((product, idx) => (
               <div key={idx}>
                 <ProductCard
                   title={product.productTitle}

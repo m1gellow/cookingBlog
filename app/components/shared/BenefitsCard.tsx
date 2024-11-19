@@ -17,10 +17,10 @@ const BenefitsCard: React.FC<BenefitsCardProps> = ({
   return (
     <div className={cn(`border-${color}-300 border-2 rounded-[30px] p-6`)}>
       <div className="flex flex-col  gap-4 items-start justify-center">
-        <h2>
+        <h2 className="text-[40px]">
           {title}
         </h2>
-        <h3 className="line-clamp-3">
+        <h3 className="text-2xl">
           {content}
         </h3>
       </div>

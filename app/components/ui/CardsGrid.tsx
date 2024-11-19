@@ -3,11 +3,11 @@ import BlogCard from "../shared/BlogCard";
 import { IBlogPosts } from "@/app/lib/types";
 import TagLine from "../shared/TagLine";
 
-interface INews {
+interface ICardsGrid {
   posts: IBlogPosts[];
 }
 
-const News: React.FC<INews> = async ({ posts }) => {
+const CardsGrid: React.FC<ICardsGrid> = async ({ posts }) => {
   return (
     <section id="blog" className="mt-[100px]">
       <div className="flex flex-col gap-8 items-center justify-center">
@@ -27,6 +27,7 @@ const News: React.FC<INews> = async ({ posts }) => {
               title={post.title}
               description={post.smallDescription}
             />
+            
           ))}
         </div>
       </div>
@@ -34,4 +35,4 @@ const News: React.FC<INews> = async ({ posts }) => {
   );
 };
 
-export default News;
+export default CardsGrid;
