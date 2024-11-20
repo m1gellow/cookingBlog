@@ -16,7 +16,6 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(`${process.env.NEXT_PUBLIC_URL}`),
   title:{
     default: "Кулинарый Мир",
     template: "%s | Кулинарный Мир"

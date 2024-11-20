@@ -19,13 +19,6 @@ export async function generateMetadata(props: {
   return {
     title: data.productTitle,
     description: data.productDescription,
-    alternates: {
-      canonical: `/catalog/${data.slug}`,
-      languages: {
-        'en-US': `/en-US/catalog/${data.slug}`,
-        'de-DE': `/de-DE/catalog/${data.slug}`,
-      },
-    },
   };
 }
 

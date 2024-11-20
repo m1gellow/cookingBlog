@@ -18,13 +18,6 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   return {
     title: data.title,
     description: data.smallDescription,
-    alternates:{
-      canonical: `/blog/${data.currentSlug}`,
-      languages: {
-        'en-US': `/en-US/blog/${data.currentSlug}`,
-        'de-DE': `/de-DE/blog/${data.currentSlug}`,
-      },
-    }
   };
 }
 
