@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import { AlignRight } from "lucide-react";
+import { AlignRight, Home } from "lucide-react";
 import {pageConfig} from '../../lib/pages.config';
 import { usePathname } from "next/navigation";
 
@@ -89,7 +89,7 @@ const Navbar = () => {
           </li>
           <li>
             <Link href={pathname !== '/' ? '/' : pageConfig.home}  className="link">
-              Logo
+            <Home size={30}/>
             </Link>
           </li>
           <li>

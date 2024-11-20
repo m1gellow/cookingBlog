@@ -6,15 +6,17 @@ import { getBlogData } from "./lib/serverActions";
 import { IBlogPosts } from "./lib/types";
 import Contacts from "./components/ui/Contacts";
 import CardsGrid from "./components/ui/CardsGrid";
+import { Suspense } from "react";
+import Loading from "./components/shared/Loading";
 
 export const revalidate = 30;
 
 export async function generateStaticParams() {
   const data = await getBlogData();
 
-  return data.map(({post}: {post: string}) => ({
-    slug: post
-  }))
+  return data.map(({ post }: { post: string }) => ({
+    slug: post,
+  }));
 }
 
 export default async function Home() {
@@ -27,8 +29,9 @@ export default async function Home() {
       <Welcome />
       <Benefits />
       <Devider index={3} />
-
-      <CardsGrid posts={data} />
+      <Suspense fallback={<Loading/>}>
+        <CardsGrid posts={data} />
+      </Suspense>
 
       <Devider index={2} />
       <Contacts />

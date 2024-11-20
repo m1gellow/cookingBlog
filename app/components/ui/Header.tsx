@@ -36,7 +36,7 @@ const Header = async () => {
             alt="Illustration of various culinary projects"
             width={600}
             height={600}
-            loading="lazy"
+            priority
           />
         </div>
       </div>

@@ -32,6 +32,7 @@ const BlogCard: React.FC<IBlogCard> = ({
         width={1000}
         height={1000}
         alt={`${title} image`}
+        loading="lazy"
       />
       <div className="flex gap-4 px-3 py-3">
         {tag.map((tag, idx) => (

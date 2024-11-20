@@ -13,7 +13,7 @@ const Contacts = async () => {
       <div className="flex flex-col items-center justify-center">
         <div className="flex items-center flex-col justify-center gap-4">
           <h2>Мои контакты</h2>
-          <h2>Давайте оставаться на связи</h2>
+          <h2>Давайте оставаться на связи!</h2>
         </div>
         <div className="flex md:flex-row  flex-col  items-center justify-center gap-6">
           {data.map((contact, idx) => (

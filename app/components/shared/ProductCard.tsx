@@ -1,7 +1,6 @@
 
 import Image from "next/image";
 import React from "react";
-import Link from "next/link";
 import { urlFor } from "@/app/lib/sanity";
 import MainButton from "./MainButton";
 
@@ -29,6 +28,7 @@ const ProductCard: React.FC<IProductCard> = ({
         width={1000}
         height={1000}
         alt={`${title} image`}
+        loading="lazy"
       />
       <div className="flex flex-col items-center gap-4 ">
         <h2 className="uppercase sm:text-[30px] lg:text-[35px]">{title}</h2>
@@ -36,9 +36,9 @@ const ProductCard: React.FC<IProductCard> = ({
           <h3 className="text-[20px] font-bold text-primary lg:text-[25px]">{price}</h3>
         </div>
         {button && (
-          <Link href={`/catalog/${slug}`}>
-            <MainButton text={button}  variant="buy" />
-          </Link>
+          
+            <MainButton href={`/catalog/${slug}`} text={button}  variant="buy" />
+  
         )}
       </div>
     </article>

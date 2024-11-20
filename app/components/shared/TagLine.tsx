@@ -3,6 +3,8 @@ import { ITags } from "@/app/lib/types";
 import React from "react";
 import TagCard from "./TagCard";
 
+export const revalidata = 30;
+
 const TagLine = async () => {
   const data: ITags[] = await getTags();
 

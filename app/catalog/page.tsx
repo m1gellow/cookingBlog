@@ -15,7 +15,7 @@ const CatalogPage = async () => {
   const data: IProducts[] = await getAllProducts();
 
   return (
-    <div className="container">
+    <div className="container mb-[100px]">
       <div className="">
         <Catalog products={data} />
       </div>

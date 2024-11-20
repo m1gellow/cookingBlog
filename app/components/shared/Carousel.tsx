@@ -24,7 +24,7 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
           className="rounded"
           src={urlFor(images[currentIndex]).url()}
           alt="Example Image"
-       
+          loading="lazy"
           width={1000}
           height={1000}
         />
