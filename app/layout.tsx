@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     template: "%s | Кулинарный Мир"
   },
   description: "Блог о Кулинарии",
+  verification:{
+    google: "YMuJ2gW-mGiT1UKwKjAT75NURMnomcWunRXr4rZPeM4"
+  }
 }
 
 export default function RootLayout({
