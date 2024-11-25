@@ -8,11 +8,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
 
     const blogPostsEntries: MetadataRoute.Sitemap = BlogPosts.map((post: IBlogPosts) => ({
-        url: `${process.env.NEXT_PUBLIC_URL}/blog/${post.currentSlug}`
+        url: `https://culinary-world.ru/blog/${post.currentSlug}`
     }))
 
     const productsEntries: MetadataRoute.Sitemap = Products.map((product: IProducts) => ({
-        url: `${process.env.NEXT_PUBLIC_URL}/catalog/${product.slug}`
+        url: `https://culinary-world.ru/catalog/${product.slug}`
     }))
  
 
@@ -22,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     return[
         {
-            url: `${process.env.NEXT_PUBLIC_URL}/catalog`,
+            url: `https://culinary-world.ru/catalog`,
         },
         ...blogPostsEntries,
         ...productsEntries,
