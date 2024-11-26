@@ -22,7 +22,8 @@ export const metadata: Metadata = {
   },
   description: "Блог о Кулинарии",
   verification:{
-    google: "YMuJ2gW-mGiT1UKwKjAT75NURMnomcWunRXr4rZPeM4"
+    google: "YMuJ2gW-mGiT1UKwKjAT75NURMnomcWunRXr4rZPeM4",
+    yandex: "a9689c2808bf8374"
   }
 }
 
