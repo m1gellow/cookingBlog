@@ -8,18 +8,19 @@ interface ICardsGrid {
 }
 
 const CardsGrid: React.FC<ICardsGrid> = async ({ posts }) => {
+  const title = "Мой блог"
+  const description = "Новости, проекты, торты!"
   return (
     <section id="blog" className="mt-[100px]">
       <div className="flex flex-col gap-8 items-center justify-center">
         <header className="flex flex-col gap-8 items-center justify-center text-center">
-          <h2 className="uppercase">Мой блог</h2>
-          <h2>Новости, проекты, торты!</h2>
+          <h2 className="uppercase">{title}</h2>
+          <h2>{description}</h2>
         </header>{" "}
         <TagLine />
         <div className="grid grid-cols-1 justify-center items-center  gap-8 md:grid-cols-2 lg:grid-cols-2">
           {posts.map((post, idx) => (
             <BlogCard
-              tag={post.tags}
               key={idx}
               slug={post.currentSlug}
               images={post.titleImages}

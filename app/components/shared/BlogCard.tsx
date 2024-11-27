@@ -3,7 +3,6 @@ import Image from "next/image";
 import React from "react";
 import { urlFor } from "@/app/lib/sanity";
 import MainButton from "./MainButton";
-import TagCard from "./TagCard";
 
 interface IBlogCard {
   title: string;
@@ -11,9 +10,6 @@ interface IBlogCard {
   button?: string;
   images: string[];
   slug: string;
-  tag: {
-    title: string;
-  }[];
 }
 
 const BlogCard: React.FC<IBlogCard> = ({
@@ -22,7 +18,6 @@ const BlogCard: React.FC<IBlogCard> = ({
   button,
   images,
   slug,
-  tag,
 }) => {
   return (
     <div className="max-w-sm bg-white border flex flex-col  border-gray-200 rounded-lg shadow-md">
@@ -34,11 +29,7 @@ const BlogCard: React.FC<IBlogCard> = ({
         alt={`${title} image`}
         loading="lazy"
       />
-      <div className="flex gap-4 px-3 py-3">
-        {tag.map((tag, idx) => (
-          <TagCard key={idx} tag={tag.title} />
-        ))}
-      </div>
+     
 
       <div className="p-5">
         <h2 className="mb-2 text-3xl  text-primary">{title}</h2>

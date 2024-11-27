@@ -17,26 +17,25 @@ body::-webkit-scrollbar{
     display: none;
 }
 
-h1{
+h1 {
     font-family: "Playfair Display", serif;
-    @apply text-[60px] sm:text-[80px] md:text-[85px] lg:text-[90px] xl:text-[120px] text-primary;
-
-}
-
-h2{
-    font-family: 'Playfire Display', serif;
-    @apply  text-[25px] sm:text-[25px] md:text-[35px] lg:text-[40px] xl:text-[50px];
-}
-
-h3{
+    @apply text-[60px] sm:text-[70px] md:text-[80px] lg:text-[90px] xl:text-[100px] text-primary;
+  }
+  
+  h2 {
+    font-family: "Playfair Display", serif;
+    @apply text-[30px] sm:text-[35px] md:text-[40px] lg:text-[45px] xl:text-[50px];
+  }
+  
+  h3 {
     font-family: "Roboto", serif;
-    @apply text-[25px] text-primary/70  sm:text-[25px] md:text-[30px]  xl:text-[35px];
-}
-
-h4{
+    @apply text-[24px] sm:text-[28px] md:text-[32px] lg:text-[36px] xl:text-[40px] text-primary/70;
+  }
+  
+  h4 {
     font-family: "Roboto", serif;
-   
-}
+    @apply text-[20px] sm:text-[24px] md:text-[28px] lg:text-[32px] xl:text-[36px];
+  }
 
 
 .contactsLink{

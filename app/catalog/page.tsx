@@ -16,7 +16,7 @@ const CatalogPage = async () => {
 
   return (
     <div className="container mb-[100px]">
-      <div className="">
+      <div >
         <Catalog products={data} />
       </div>
     </div>

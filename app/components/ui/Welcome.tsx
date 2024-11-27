@@ -7,7 +7,7 @@ import AboutMeText from "../shared/AboutMeText";
 export const revalidate = 30;
 
 const Welcome = async () => {
-  const title = "О мне";
+  const title = "Обо мне";
   const descriptionText = "Давайте познакомимся!";
 
   const data: IAboutMe[] = await getAboutMeData();

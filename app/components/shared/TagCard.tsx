@@ -8,9 +8,9 @@ interface ITagCard {
 const TagCard: React.FC<ITagCard> = ({tag}: {tag: string}) => {
   return (
     <div>
-      <div className="border-pink-500/35 border inline-flex  rounded-md px-6 ">
+      <div className=" border inline-flex py-2 px-5 rounded-md hover:border-pink-500/30">
         <Link href={`/certainBlog/${tag}`}>
-          <h4 className="text-gray-600 font-medium text-xl">{tag}</h4>
+          <h4 className=" font-medium text-xl">{tag}</h4>
         </Link>
       </div>
     </div>

@@ -2,12 +2,13 @@
 import React from "react";
 import BenefitsCard from "../shared/BenefitsCard";
 
-import SectionDescription from "../shared/SectionDescription";
 import { IBenefits } from "@/app/lib/types";
 import { getBenefitsData } from "@/app/lib/serverActions";
 
 
 const Benefits = async() => {
+  const title = "Наши преимущества";
+
 
   const data: IBenefits[] = await getBenefitsData();
 
@@ -19,8 +20,7 @@ const Benefits = async() => {
            
             className="flex flex-col items-center justify-center uppercase"
           >
-            <h2>Наши преимущества.</h2>
-            <SectionDescription text="Преимущества, которые стоит попробовать!" />
+            <h2>{title}</h2>
           </div>
           
           <div
